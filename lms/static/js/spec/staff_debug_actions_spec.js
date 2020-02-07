@@ -31,6 +31,15 @@ define([
                 });
             });
 
+            describe('getURL ', function() {
+                it('defines url to courseware ajax entry point', function() {
+                    spyOn(StaffDebug, 'getCurrentUrl')
+                      .and.returnValue('/courses/edx_demo_coursedX/instructor#view-open_response_assessment');
+                    expect(StaffDebug.getURL('rescore_problem'))
+                      .toBe('/courses/edX/Open_DemoX/edx_demo_course/instructor/api/rescore_problem');
+                });
+            });
+
             describe('sanitizeString', function() {
                 it('escapes escapable characters in a string', function() {
                     expect(StaffDebug.sanitizeString('.*+?^:${}()|]['))
